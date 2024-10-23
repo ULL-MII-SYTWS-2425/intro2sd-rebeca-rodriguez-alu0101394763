@@ -42,7 +42,7 @@ Finalmente, se ha obtenido la siguiente salida:
 
 ![bundle update, install](/img/bundle%20update.PNG)
 
-#### Servir del sitio web
+#### Servicio del sitio web
 Se ha utilizado el siguiente comando para servir el sitio web:
 
 ```bash
@@ -61,9 +61,10 @@ Obteniendo el siguiente sitio:
 Se ha editado el archivo [_posts/2022-10-01-informe.md](/_posts/2022-10-01-informe.md), de forma que ahora contiene el resumen solicitado.
 
 #### Edición de _config.yml
-Se ha editado el archivo [`_config.yml`](_config.yml), de forma que ahora contiene:
+Se ha editado el archivo [`_config.yml`](_config.yml), de forma que ahora contiene, entre otros:
 
-* En `baseurl`, la URL apropiada para este repositorio.
+* En `baseurl`, la URL de este repositorio.
 * En `author`, mi nombre de usuario en GitHub.
 * En `social`, mis redes sociales.
 * En `footer`, mis links.
+* En `minimal_mistakes_skin`, `plum`.
