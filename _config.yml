@@ -199,7 +199,10 @@ collections:
   portfolio:
     output: true
     permalink: /:collection/:path/
-
+  # Colección de ejemplo
+  examples:
+    output: true
+    permalink: /:collection/:path/
 
 # Defaults
 defaults:
@@ -212,7 +215,7 @@ defaults:
       author_profile: true
       read_time: true
       comments: true
-      share: true
+      share: false
       related: true
   # _pages
   - scope:
@@ -259,6 +262,15 @@ defaults:
       layout: single
       author_profile: false
       share: true
+  # _examples
+  - scope:
+      path: "_examples"
+      type: examples
+    values:
+      layout: "single"
+      author: "rrrguez"
+      category: "Examples"
+
 
 
 # Sass/SCSS

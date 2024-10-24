@@ -58,13 +58,36 @@ Obteniendo el siguiente sitio:
 ![Salida rake serve](/img/salida%20rake.png)
 
 #### Edición de `_posts/2022-10-01-informe.md`
-Se ha editado el archivo [_posts/2022-10-01-informe.md](/_posts/2022-10-01-informe.md), de forma que ahora contiene el resumen solicitado.
+Se ha editado el archivo [`_posts/2022-10-01-informe.md`](/_posts/2022-10-01-informe.md), de forma que ahora contiene el resumen solicitado.
+
+Además, se le ha añadido el `permalink` "ejemplo", de forma que si se añade la cadena "`/intro2sd-rebeca-rodriguez-alu0101394763/ejemplo`" al final de la URL de la página una vez se arranque el servicio, se podrá visualizar los contenidos de este archivo.
 
 #### Edición de _config.yml
-Se ha editado el archivo [`_config.yml`](_config.yml), de forma que ahora contiene, entre otros:
+1. Se ha editado el archivo [`_config.yml`](_config.yml), de forma que ahora contiene, entre otros:
 
-* En `baseurl`, la URL de este repositorio.
-* En `author`, mi nombre de usuario en GitHub.
-* En `social`, mis redes sociales.
-* En `footer`, mis links.
-* En `minimal_mistakes_skin`, `plum`.
+    * En `baseurl`, la URL de este repositorio.
+    * En `author`, mi nombre de usuario en GitHub.
+    * En `social`, mis redes sociales.
+    * En `footer`, mis links.
+    * En `minimal_mistakes_skin`, `plum`.
+
+2. Se ha añadido una nueva Jekyll Collection llamada "examples", a la que se le han añadido tres archivos de ejemplo:
+
+    ![Jekyll Collection](/img/jekyll-collection.PNG)
+
+    Estos archivos son mostrados en `_posts/2022-10-01-informe.md` usando el siguiente bloque de código Liquid:
+
+    ```liquid
+    {% for example in site.examples %}
+    <h2><a href="{{ example.url }}">{{ example.title }}</a></h2>
+    <p>{{ example.description }}</p>
+    {% endfor %}
+    ```
+
+3. Se ha añadido un nuevo `default` para la colección "examples":
+
+    ![Defaults](/img/defaults.PNG)
+
+    Esto hará que, por defecto, los contenidos de la colección "examples" tengan el _layout_ `single`, que su autor sea `rrrguez`, y que pertenezcan a la categoría "Examples".
+
+Una vez guardados estos cambios en el archivo `_config.yml`, se para y rearranca el servidor mediante el comando `rake serve`, obteniendo ahora la siguiente página:
