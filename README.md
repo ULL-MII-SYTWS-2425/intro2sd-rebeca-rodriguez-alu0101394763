@@ -91,3 +91,15 @@ Además, se le ha añadido el `permalink` "ejemplo", de forma que si se añade l
     Esto hará que, por defecto, los contenidos de la colección "examples" tengan el _layout_ `single`, que su autor sea `rrrguez`, y que pertenezcan a la categoría "Examples".
 
 Una vez guardados estos cambios en el archivo `_config.yml`, se para y rearranca el servidor mediante el comando `rake serve`, obteniendo ahora la siguiente página:
+
+![Resultado](/img/intro2sd.png)
+
+### Despliegues
+#### GitHub Pages
+Para realizar el despliegue en GitHub Pages, se va a utilizar una rama `gh-pages`. Esta rama se puede crear desde la línea de comandos de la siguiente manera:
+
+```bash
+git branch gh-pages
+git checkout gh-pages
+```
+
