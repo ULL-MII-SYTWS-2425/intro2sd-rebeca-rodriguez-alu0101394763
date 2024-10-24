@@ -295,7 +295,7 @@ PLATFORMS
   x86_64-linux
 
 DEPENDENCIES
-  ffi (~> 1.17.0.pre.arm64.pre.darwin)
+  ffi (~> 1.17)
   github-pages
   jekyll-algolia
   jekyll-feed
