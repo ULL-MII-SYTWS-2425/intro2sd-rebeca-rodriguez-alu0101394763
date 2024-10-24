@@ -103,3 +103,21 @@ git branch gh-pages
 git checkout gh-pages
 ```
 
+En este caso, no ha sido necesario realizar ningún otro paso adicional, puesto que se ha partido de un repositorio existente que ya estaba configurado.
+
+Si se navega al apartado "Settings" del repositorio de la práctica, en la sección _Pages_ de "Code and automation", se podrá ver el enlace al sitio desplegado:
+
+![Pages](/img/pages.png)
+
+#### Netlify && Vercel
+Se ha realizado un segundo despliegue en Netlify.
+
+Como Netlify no forma parte del paquete de GitHub, ha sido necesario cambiar la visibilidad del repositorio a público.
+
+Para realizar el despliegue, se han seguido los siguientes pasos:
+
+1. Comprobación de que la configuración del repositorio es la adecuada.
+
+2. Creación de una cuenta en [Netlify](https://www.netlify.com).
+
+3. Conexión de mi cuenta con GitHub y selección del repositorio de la práctica, dando a Netlify la autorización requerida.
