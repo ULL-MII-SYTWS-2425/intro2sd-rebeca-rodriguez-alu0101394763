@@ -79,8 +79,8 @@ Además, se le ha añadido el `permalink` "ejemplo", de forma que si se añade l
 
     ```liquid
     {% for example in site.examples %}
-    <h2><a href="{{ example.url }}">{{ example.title }}</a></h2>
-    <p>{{ example.description }}</p>
+        <h2><a href="{{ example.url }}">{{ example.title }}</a></h2>
+        <p>{{ example.description }}</p>
     {% endfor %}
     ```
 
@@ -89,6 +89,16 @@ Además, se le ha añadido el `permalink` "ejemplo", de forma que si se añade l
     ![Defaults](/img/defaults.PNG)
 
     Esto hará que, por defecto, los contenidos de la colección "examples" tengan el _layout_ `single`, que su autor sea `rrrguez`, y que pertenezcan a la categoría "Examples".
+
+4. Se ha añadido un archivo [`/_data/examples.json`](/_data/examples.json) que contiene un conjunto de datos de ejemplo.
+    Este archivo es accedido desde `/_posts/2022-10-01-informe.md` de la siguiente manera:
+
+    ```liquid
+    {% for example in site.data.examples %}
+        <h2>{{ example.name }}</h2>
+        <p>{{ example.description }}</p>
+    {% endfor %}
+    ```
 
 Una vez guardados estos cambios en el archivo `_config.yml`, se para y rearranca el servidor mediante el comando `rake serve`, obteniendo ahora la siguiente página:
 
@@ -121,3 +131,15 @@ Para realizar el despliegue, se han seguido los siguientes pasos:
 2. Creación de una cuenta en [Netlify](https://www.netlify.com).
 
 3. Conexión de mi cuenta con GitHub y selección del repositorio de la práctica, dando a Netlify la autorización requerida.
+
+### Personalización de la página `404.md`
+Se ha personalizado la página de error [`404.md`](/_pages/404.md) tomando como inspiración la descrita en los [apuntes](https://ull-mii-sytws.github.io/temas/web/jekyll-404.html).
+
+En este caso, se mostrará un mensaje de error y se mostrarán imágenes de perritos aleatorias obtenidas de [The Dog API](https://thedogapi.com). Por ejemplo:
+
+![The Dog API](/img/dog-api.png)
+
+### Página personal
+Con los conocimientos adquiridos en los pasos anteriores, se ha desarrollado una página personal en GitHub.
+
+Esta página ha sido enlazada desde mi perfil de GitHub, de forma que puede ser fácilmente accesible desde allí.
