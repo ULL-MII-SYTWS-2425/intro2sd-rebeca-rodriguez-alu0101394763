@@ -132,6 +132,15 @@ Para realizar el despliegue, se han seguido los siguientes pasos:
 
 3. Conexión de mi cuenta con GitHub y selección del repositorio de la práctica, dando a Netlify la autorización requerida.
 
+4. Despliegue de la página web.
+
+    ![Despliegue sin errores](/img/deploy-netlify.png)
+
+    ![Página desplegada](/img/netlify-pag-desplegada.png)
+
+    > [!NOTE]
+    > La página desplegada aparece sin estilos porque, después de numerosos problemas con las dependencias del proyecto en el despliegue, finalmente conseguí que este se pudiese completar sin errores comentando las líneas relativas a Sass en el archivo `_config.yml` de la rama `netlify`, que es desde donde se ha realizado el despliegue.
+
 ### Personalización de la página `404.md`
 Se ha personalizado la página de error [`404.md`](/_pages/404.md) tomando como inspiración la descrita en los [apuntes](https://ull-mii-sytws.github.io/temas/web/jekyll-404.html).
 
