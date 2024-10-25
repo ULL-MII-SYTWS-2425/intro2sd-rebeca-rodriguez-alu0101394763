@@ -1,10 +1,19 @@
 source "https://rubygems.org"
 
-# gem "github-pages", group: :jekyll_plugins
+gem "github-pages", group: :jekyll_plugins
 
-ruby "3.3.4"
+gem "tzinfo-data"
+gem "wdm", "~> 0.1.0" if Gem.win_platform?
+gem "webrick"
+gem "ffi", "1.15.2"
 
-gem "jekyll", "~> 4.2.0"
-gem "jekyll-feed", "~> 0.15"
-gem "jekyll-seo-tag"
-gem "jekyll-sitemap"
+# If you have any plugins, put them here!
+group :jekyll_plugins do
+  gem "jekyll-paginate"
+  gem "jekyll-sitemap"
+  gem "jekyll-gist"
+  gem "jekyll-feed"
+  gem "jemoji"
+  gem "jekyll-include-cache"
+  gem "jekyll-algolia"
+end
