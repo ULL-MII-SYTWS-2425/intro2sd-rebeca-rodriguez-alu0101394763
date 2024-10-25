@@ -9,7 +9,7 @@ gem "webrick"
 gem "ffi", "~> 1.15.5"
 gem "bundler", "~> 2.5.11"
 gem "bigdecimal", "3.1.2"
-gem "activesupport", "~> 7.2.1"
+gem "activesupport", "7.2.1"
 gem "html-pipeline", "~> 2.14.3"
 gem "jekyll-mentions", "~> 1.6.0"
 
