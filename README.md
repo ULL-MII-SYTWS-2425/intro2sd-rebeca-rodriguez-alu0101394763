@@ -138,7 +138,8 @@ Para realizar el despliegue, se han seguido los siguientes pasos:
 
     ![Página desplegada](/img/netlify-pag-desplegada.png)
 
-    > [!NOTE]  
+    > [!NOTE] 
+    > 
     > La página desplegada aparece sin estilos porque, después de numerosos problemas con las dependencias del proyecto en el despliegue, finalmente conseguí que este se pudiese completar sin errores comentando las líneas relativas a Sass en el archivo `_config.yml` de la rama `netlify`, que es desde donde se ha realizado el despliegue.
 
 ### Personalización de la página `404.md`
