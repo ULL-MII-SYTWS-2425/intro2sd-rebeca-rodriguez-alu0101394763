@@ -1,5 +1,7 @@
 [![Open in Codespaces](https://classroom.github.com/assets/launch-codespace-2972f46106e565e64193e422d61a12cf1da4916b45550586e14ef0a7c637dd04.svg)](https://classroom.github.com/open-in-codespaces?assignment_repo_id=16674305)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2544b7a0-0bf3-4e13-81a2-84a67e633a22/deploy-status)](https://app.netlify.com/sites/intro2sd-rebeca-rodriguez/deploys/deploy-status?branch=netlify)
+
 # Sistemas y Tecnología Web: Servidor
 ### Máster en Ingeniería Informática (Curso 24-25)
 ## Práctica: "Introduction to Systems Development" and Static Generators
@@ -79,8 +81,8 @@ Además, se le ha añadido el `permalink` "ejemplo", de forma que si se añade l
 
     ```liquid
     {% for example in site.examples %}
-    <h2><a href="{{ example.url }}">{{ example.title }}</a></h2>
-    <p>{{ example.description }}</p>
+        <h2><a href="{{ example.url }}">{{ example.title }}</a></h2>
+        <p>{{ example.description }}</p>
     {% endfor %}
     ```
 
@@ -89,6 +91,16 @@ Además, se le ha añadido el `permalink` "ejemplo", de forma que si se añade l
     ![Defaults](/img/defaults.PNG)
 
     Esto hará que, por defecto, los contenidos de la colección "examples" tengan el _layout_ `single`, que su autor sea `rrrguez`, y que pertenezcan a la categoría "Examples".
+
+4. Se ha añadido un archivo [`/_data/examples.json`](/_data/examples.json) que contiene un conjunto de datos de ejemplo.
+    Este archivo es accedido desde `/_posts/2022-10-01-informe.md` de la siguiente manera:
+
+    ```liquid
+    {% for example in site.data.examples %}
+        <h2>{{ example.name }}</h2>
+        <p>{{ example.description }}</p>
+    {% endfor %}
+    ```
 
 Una vez guardados estos cambios en el archivo `_config.yml`, se para y rearranca el servidor mediante el comando `rake serve`, obteniendo ahora la siguiente página:
 
@@ -103,3 +115,43 @@ git branch gh-pages
 git checkout gh-pages
 ```
 
+En este caso, no ha sido necesario realizar ningún otro paso adicional, puesto que se ha partido de un repositorio existente que ya estaba configurado.
+
+Si se navega al apartado "Settings" del repositorio de la práctica, en la sección _Pages_ de "Code and automation", se podrá ver el enlace al sitio desplegado:
+
+![Pages](/img/pages.png)
+
+#### Netlify && Vercel
+Se ha realizado un segundo despliegue en Netlify.
+
+Como Netlify no forma parte del paquete de GitHub, ha sido necesario cambiar la visibilidad del repositorio a público.
+
+Para realizar el despliegue, se han seguido los siguientes pasos:
+
+1. Comprobación de que la configuración del repositorio es la adecuada.
+
+2. Creación de una cuenta en [Netlify](https://www.netlify.com).
+
+3. Conexión de mi cuenta con GitHub y selección del repositorio de la práctica, dando a Netlify la autorización requerida.
+
+4. Despliegue de la página web.
+
+    ![Despliegue sin errores](/img/deploy-netlify.png)
+
+    ![Página desplegada](/img/netlify-pag-desplegada.png)
+
+    > [!NOTE] 
+    > 
+    > La página desplegada aparece sin estilos porque, después de numerosos problemas con las dependencias del proyecto en el despliegue, finalmente conseguí que este se pudiese completar sin errores comentando las líneas relativas a Sass en el archivo `_config.yml` de la rama `netlify`, que es desde donde se ha realizado el despliegue.
+
+### Personalización de la página `404.md`
+Se ha personalizado la página de error [`404.md`](/_pages/404.md) tomando como inspiración la descrita en los [apuntes](https://ull-mii-sytws.github.io/temas/web/jekyll-404.html).
+
+En este caso, se mostrará un mensaje de error y se mostrarán imágenes de perritos aleatorias obtenidas de [The Dog API](https://thedogapi.com). Por ejemplo:
+
+![The Dog API](/img/dog-api.png)
+
+### Página personal
+Con los conocimientos adquiridos en los pasos anteriores, se ha desarrollado una página personal en GitHub.
+
+Esta página ha sido enlazada desde mi perfil de GitHub, de forma que puede ser fácilmente accesible desde allí.
