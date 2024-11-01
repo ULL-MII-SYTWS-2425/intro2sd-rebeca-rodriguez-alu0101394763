@@ -157,3 +157,4 @@ En este caso, se mostrará un mensaje de error y se mostrarán imágenes de perr
 Con los conocimientos adquiridos en los pasos anteriores, se ha desarrollado una [página personal](https://rrrguez.github.io) en GitHub.
 
 Esta página ha sido enlazada desde mi [perfil de GitHub](https://github.com/rrrguez), de forma que puede ser fácilmente accesible desde allí.
+
