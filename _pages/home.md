@@ -16,6 +16,13 @@ feature_row:
     url: "/chapter1"
     btn_class: "btn--primary"
     btn_label: "Learn more"     
+  - image_path: /assets/images/mm-customizable-feature.png
+    alt: "customizable"
+    title: "Developing Information Systems"
+    excerpt: "Resumen del Capítulo 2"
+    url: "/chapter2"
+    btn_class: "btn--primary"
+    btn_label: "Learn more" 
 ---
 
 {% include feature_row %}
