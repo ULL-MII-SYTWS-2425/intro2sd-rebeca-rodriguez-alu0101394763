@@ -11,8 +11,8 @@ excerpt: >
 feature_row:
   - image_path: /assets/images/mm-customizable-feature.png
     alt: "customizable"
-    title: "Posts"
-    excerpt: "Resúmenes de capítulos"
+    title: "Developing Information Systems"
+    excerpt: "Resumen del Capítulo 1"
     url: "/ejemplo"
     btn_class: "btn--primary"
     btn_label: "Learn more"     
