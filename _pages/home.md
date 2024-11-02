@@ -13,7 +13,7 @@ feature_row:
     alt: "customizable"
     title: "Posts"
     excerpt: "Resúmenes de capítulos"
-    url: "/_posts/"
+    url: "/ejemplo"
     btn_class: "btn--primary"
     btn_label: "Learn more"     
 ---
