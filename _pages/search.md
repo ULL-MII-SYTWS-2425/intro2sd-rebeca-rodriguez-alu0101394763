@@ -5,8 +5,6 @@ title: Search
 
 {% capture initSearch %}
 
-<h1>Search</h1>
-
 <form id="search-form" action="">
   <label class="label" for="search">Search term (accepts a regex):</label>
   <br/>
@@ -19,8 +17,8 @@ title: Search
   </ul>
 </form>
 
-< script type="text/javascript" src="/assets/src/fetch.js"></script>
-< script type="text/javascript" src="/assets/src/search.js"></script>
+< script type="text/javascript" src="{{site.baseurl}}/assets/src/fetch.js"></script>
+< script type="text/javascript" src="{{site.baseurl}}/assets/src/search.js"></script>
 
 
 < script type="text/javascript">
