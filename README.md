@@ -2,6 +2,8 @@
 
 [![pages-build-deployment](https://github.com/ULL-MII-SYTWS-2425/intro2sd-rebeca-rodriguez-alu0101394763/actions/workflows/pages/pages-build-deployment/badge.svg?branch=gh-pages)](https://github.com/ULL-MII-SYTWS-2425/intro2sd-rebeca-rodriguez-alu0101394763/actions/workflows/pages/pages-build-deployment)
 
+[![Netlify Status](https://api.netlify.com/api/v1/badges/2544b7a0-0bf3-4e13-81a2-84a67e633a22/deploy-status)](https://app.netlify.com/sites/intro2sd-rebeca-rodriguez/deploys)
+
 # Sistemas y Tecnología Web: Servidor
 ### Máster en Ingeniería Informática (Curso 24-25)
 ## Práctica: "Introduction to Systems Development" and Static Generators
