@@ -60,7 +60,9 @@ La ejecución de este comando resultará en un fichero `/_site/assets/src/search
 
 > [!IMPORTANT]
 > Si se utiliza un IDE para trabajar en el repositorio, se obtendrá un error de sintaxis en la línea 1 del fichero `/assets/src/search.json` debido a que se analizará dicho fichero como un archivo JSON puro, sin tener en cuenta el uso de Liquid. 
+>
 > Dado que Liquid no es JSON estándar, el IDE interpretará que la sintaxis del fichero es incorrecta. Sin embargo, al compilar el sitio web con Jekyll, este se procesará sin problemas y se generará un JSON completamente válido.
+>
 > Por lo tanto, este mensaje de error puede ser ignorado perfectamente.
 
 ### `search.js`
@@ -73,7 +75,7 @@ En el *script* [`/assets/src/search.js`](/assets/src/search.js) se define la cla
 
 El *script* `/assets/src/search.js` mencionado utiliza la API `fetch` de JavaScript, que sirve para realizar peticiones HTTP de forma asíncrona, de forma que se facilita la obtención de datos desde servidores.
 
-Dado que hay navegadores antiguos que no soportan `fetch`, la definición de un *polyfill* en el fichero [`/assets/src/fetch.js](/assets/src/fetch.js) permite que estos navegadores puedan utilizar la funcionalidad `fetch` sin tener que ser actualizados.
+Dado que hay navegadores antiguos que no soportan `fetch`, la definición de un *polyfill* en el fichero [`/assets/src/fetch.js`](/assets/src/fetch.js) permite que estos navegadores puedan utilizar la funcionalidad `fetch` sin tener que ser actualizados.
 
 ### `search.md`
 Por último, se ha definido el fichero [`/_pages/search.md`](/_pages/search.md), que presenta la página de búsqueda del sitio web. Mediante ella, se podrá hacer uso de la nueva capacidad de búsqueda, de forma que se podrán buscar palabras clave en el sitio o incluso utilizar expresiones regulares.

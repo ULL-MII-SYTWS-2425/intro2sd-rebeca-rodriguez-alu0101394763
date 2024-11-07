@@ -17,8 +17,8 @@ title: Search
   </ul>
 </form>
 
-<script type="text/javascript" src='ull-mii-sytws-2425.github.io/intro2sd-rebeca-rodriguez-alu0101394763/assets/src/fetch.js'></script>
-<script type="text/javascript" src='ull-mii-sytws-2425.github.io/intro2sd-rebeca-rodriguez-alu0101394763/assets/src/search.js'></script>
+<script type="text/javascript" src='{{site.baseurl}}/assets/src/fetch.js'></script>
+<script type="text/javascript" src='{{site.baseurl}}/assets/src/search.js'></script>
 
 <script type="text/javascript">
 
