@@ -22,7 +22,7 @@ feature_row:
     excerpt: "Resumen del Capítulo 2"
     url: "/chapter2"
     btn_class: "btn--primary"
-    btn_label: "Learn more" 
+    btn_label: "Learn more"
 ---
 
 {% include feature_row %}

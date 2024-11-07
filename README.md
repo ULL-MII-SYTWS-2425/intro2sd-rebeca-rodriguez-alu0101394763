@@ -11,9 +11,7 @@
 ---
 
 ## Descripción y objetivos de la práctica
-El objetivo de esta práctica es realizar un resumen de los conceptos más importantes del primer capítulo del libro: [**Developing Information Systems: Practical Guidance for IT Professionals**](https://ebookcentral-proquest-com.accedys2.bbtk.ull.es/lib/bull-ebooks/detail.action?docID=1713962#).
-
-Este resumen deberá ser publicado como un post utilizando **Jekyll** y **GitHub Pages** para desplegar un sitio web con dicho informe.
+El objetivo de esta práctica es incoporar la capacidad de búsqueda al sitio web desarrollado en la Práctica: <ins>"Introduction to Systems Development" and Static Generators</ins>.
 
 Este repositorio parte de una plantilla predefinida, llamada [**Minimal Mistakes**](https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/).
 
@@ -31,128 +29,57 @@ GitHub Pages se puede utilizar conjuntamente con Jekyll, puesto que ahora GitHub
 A continuación, se exponen las acciones realizadas durante el desarrollo de la práctica.
 
 ### Primeros pasos
-#### Instalación de las gemas necesarias
-Se han utilizado los siguientes comandos:
+En primer lugar, se ha realizado el resumen solicitado y se ha almacenado como post en el fichero [`/_posts/2024-11-02-chapter2.md`](/_posts/2024-11-02-chapter2.md).
+
+### `search.json`
+A continuación, se ha definido el fichero [`/assets/src/search.json](/assets/src/search.json), en el que se ha hecho uso del lenguaje de plantillas Liquid para generar en tiempo de construcción la información de todas y cada una de las páginas del sitio web, ubicadas en el directorio [`/_pages/](/_pages/). Esto se hace con el siguiente comando:
 
 ```bash
-bundle update
-bundle install
-```
-Ha sido necesario ejecutar `bundle update` dado que `bundle install` daba problemas debido a la versión de Ruby.
-
-Finalmente, se ha obtenido la siguiente salida:
-
-![bundle update, install](/img/bundle%20update.PNG)
-
-#### Servicio del sitio web
-Se ha utilizado el siguiente comando para servir el sitio web:
-
-```bash
-rake serve
+bundle exec jekyll build
 ```
 
-Este comando ha hecho que se reenvíe la página web el puerto 4001, como se puede ver a continuación:
+La ejecución de este comando resultará en un fichero `/_site/assets/src/search.json` que contendrá la información de todas las páginas en formato JSON, tal como se muestra a continuación:
 
-![Puertos](/img/puertos.PNG)
-
-Obteniendo el siguiente sitio:
-
-![Salida rake serve](/img/salida%20rake.png)
-
-#### Edición de `_posts/2022-10-01-informe.md`
-Se ha editado el archivo [`_posts/2022-10-01-informe.md`](/_posts/2022-10-01-informe.md), de forma que ahora contiene el resumen solicitado.
-
-Además, se le ha añadido el `permalink` "ejemplo", de forma que si se añade la cadena "`/intro2sd-rebeca-rodriguez-alu0101394763/ejemplo`" al final de la URL de la página una vez se arranque el servicio, se podrá visualizar los contenidos de este archivo.
-
-#### Edición de _config.yml
-1. Se ha editado el archivo [`_config.yml`](_config.yml), de forma que ahora contiene, entre otros:
-
-    * En `baseurl`, la URL de este repositorio.
-    * En `author`, mi nombre de usuario en GitHub.
-    * En `social`, mis redes sociales.
-    * En `footer`, mis links.
-    * En `minimal_mistakes_skin`, `plum`.
-
-2. Se ha añadido una nueva Jekyll Collection llamada "examples", a la que se le han añadido tres archivos de ejemplo:
-
-    ![Jekyll Collection](/img/jekyll-collection.PNG)
-
-    Estos archivos son mostrados en `_posts/2022-10-01-informe.md` usando el siguiente bloque de código Liquid:
-
-    ```liquid
-    {% for example in site.examples %}
-        <h2><a href="{{ example.url }}">{{ example.title }}</a></h2>
-        <p>{{ example.description }}</p>
-    {% endfor %}
-    ```
-
-3. Se ha añadido un nuevo `default` para la colección "examples":
-
-    ![Defaults](/img/defaults.PNG)
-
-    Esto hará que, por defecto, los contenidos de la colección "examples" tengan el _layout_ `single`, que su autor sea `rrrguez`, y que pertenezcan a la categoría "Examples".
-
-4. Se ha añadido un archivo [`/_data/examples.json`](/_data/examples.json) que contiene un conjunto de datos de ejemplo.
-    Este archivo es accedido desde `/_posts/2022-10-01-informe.md` de la siguiente manera:
-
-    ```liquid
-    {% for example in site.data.examples %}
-        <h2>{{ example.name }}</h2>
-        <p>{{ example.description }}</p>
-    {% endfor %}
-    ```
-
-Una vez guardados estos cambios en el archivo `_config.yml`, se para y rearranca el servidor mediante el comando `rake serve`, obteniendo ahora la siguiente página:
-
-![Resultado](/img/intro2sd.png)
-
-### Despliegues
-#### GitHub Pages
-Para realizar el despliegue en GitHub Pages, se va a utilizar una rama `gh-pages`. Esta rama se puede crear desde la línea de comandos de la siguiente manera:
-
-```bash
-git branch gh-pages
-git checkout gh-pages
+```json
+[
+    {
+        "title": "Introduction to Systems Development",
+        "excerpt": "Systems development is the process of transforming business requirements into an operational IT system through a structured sequence of stages. These stages typically include the following:\n\n\n  \n    Feasibility studies.\n  \n  \n    Requirements engineering.\n  \n  \n    System design.\n  \n  \n    Software development.\n  \n  \n    Testing.\n  \n  \n    Implementation.\n  \n\n\nThe goal is to create more reliable and manageable systems, reducing reliance on individual developer competence by introducing standardized processes.\n\n\n\nThe following are the relationships of systems development to other disciplines:\n\n\n  \n    Project management plays a crucial role in coordinating resources and ensuring that all stakeholders are aligned with the project goals.\n  \n  \n    Business analysis focuses on identifying business problems and opportunities, often involving IT solutions, and managing system requirements.\n  \n  \n    Systems architecture involves designing a coherent IT infrastructure to support organizational growth.\n  \n  \n    Testing ensures that the developed system functions as expected, even though no system can be guaranteed to be completely error-free.\n  \n  \n    Configuration management tracks system components and changes.\n  \n  \n    Quality control processes and assurance ensures the system meets predefined standards and establishes standards, respectively.\n  \n  \n    Service management involves maintaining IT services and infrastructure, ensuring smooth operations and continuous support after the system is deployed.\n  \n\n\n\n\nOn the other hand, offshoring and outsourcing have significantly influenced systems development.\n\nOffshoring involves leveraging lower-cost, high-quality development resources in other countries, like India or Eastern European nations, while outsourcing refers to handing over development work to specialized IT firms.\n\nBoth practices offer cost savings but come with potential downsides, such as communication challenges (in offshoring) and a loss of direct control over critical systems (in outsourcing).\n\n\n\n\n  Ahmed, Tahir, et al. Developing Information Systems : Practical guidance for IT professionals, edited by James Cadle, BCS Learning &amp; Development Limited, 2014. ProQuest Ebook Central, http://ebookcentral.proquest.com/lib/bull-ebooks/detail.action?docID=1713962.\n\n\n\n\nA continuación, se muestran los contenidos de la colección examples:\n\nEjemplo 1\nEjemplo 1 de la colección 'examples'\n\nEjemplo 2\nEjemplo 2 de la colección 'examples'\n\nEjemplo 3\nEjemplo 3 de la colección 'examples'\n\n\n\nY se accede al archivo /_data/examples.json:\n\nExample 1\nEste es el ejemplo 1\n\nExample 2\nEste es el ejemplo 2\n\nExample 3\nEste es el ejemplo 3\n",
+        "content": "Systems development is the process of transforming business requirements into an operational IT system through a structured sequence of stages. These stages typically include the following:\n\n\n  \n    Feasibility studies.\n  \n  \n    Requirements engineering.\n  \n  \n    System design.\n  \n  \n    Software development.\n  \n  \n    Testing.\n  \n  \n    Implementation.\n  \n\n\nThe goal is to create more reliable and manageable systems, reducing reliance on individual developer competence by introducing standardized processes.\n\n\n\nThe following are the relationships of systems development to other disciplines:\n\n\n  \n    Project management plays a crucial role in coordinating resources and ensuring that all stakeholders are aligned with the project goals.\n  \n  \n    Business analysis focuses on identifying business problems and opportunities, often involving IT solutions, and managing system requirements.\n  \n  \n    Systems architecture involves designing a coherent IT infrastructure to support organizational growth.\n  \n  \n    Testing ensures that the developed system functions as expected, even though no system can be guaranteed to be completely error-free.\n  \n  \n    Configuration management tracks system components and changes.\n  \n  \n    Quality control processes and assurance ensures the system meets predefined standards and establishes standards, respectively.\n  \n  \n    Service management involves maintaining IT services and infrastructure, ensuring smooth operations and continuous support after the system is deployed.\n  \n\n\n\n\nOn the other hand, offshoring and outsourcing have significantly influenced systems development.\n\nOffshoring involves leveraging lower-cost, high-quality development resources in other countries, like India or Eastern European nations, while outsourcing refers to handing over development work to specialized IT firms.\n\nBoth practices offer cost savings but come with potential downsides, such as communication challenges (in offshoring) and a loss of direct control over critical systems (in outsourcing).\n\n\n\n\n  Ahmed, Tahir, et al. Developing Information Systems : Practical guidance for IT professionals, edited by James Cadle, BCS Learning &amp; Development Limited, 2014. ProQuest Ebook Central, http://ebookcentral.proquest.com/lib/bull-ebooks/detail.action?docID=1713962.\n\n\n\n\nA continuación, se muestran los contenidos de la colección examples:\n\nEjemplo 1\nEjemplo 1 de la colección 'examples'\n\nEjemplo 2\nEjemplo 2 de la colección 'examples'\n\nEjemplo 3\nEjemplo 3 de la colección 'examples'\n\n\n\nY se accede al archivo /_data/examples.json:\n\nExample 1\nEste es el ejemplo 1\n\nExample 2\nEste es el ejemplo 2\n\nExample 3\nEste es el ejemplo 3\n",
+        "url": "/intro2sd-rebeca-rodriguez-alu0101394763//chapter1"
+    },
+    
+    {
+        "title": "Lifecycle types and their rationals",
+        "excerpt": "Modelos y Enfoques de Desarrollo de Software\nLos enfoques de desarrollo de software varían en sus características, aplicabilidad y adaptabilidad a diferentes tipos de proyectos. Entre los modelos más destacados se encuentran:\n\n\n  Modelos Evolutivos e Iterativos:\n\n\n\n  \n    Spiral: Propone un desarrollo iterativo basado en prototipos y gestión de riesgos. En cada ciclo se revisan objetivos, se identifican riesgos, se desarrollan prototipos y se planifican iteraciones. Este modelo es efectivo para proyectos de alta complejidad, aunque requiere una gestión rigurosa para evitar incrementos en el alcance.\n  \n  \n    DSDM: Enfocado en iteraciones rápidas y entregas incrementales, DSDM aplica principios de negocio, colaboración y control, siendo adecuado para proyectos orientados al negocio. Se le percibe tanto como un marco de gestión de proyectos, lo que puede dificultar su implementación en desarrollos de menor envergadura.\n  \n  \n    Scrum: Popular en equipos pequeños, usa ciclos cortos llamados “sprints” para entregar versiones funcionales del producto. Si bien facilita la adaptación a cambios, requiere alta colaboración del cliente y puede ser difícil de escalar en proyectos complejos.\n  \n\n\n\n  \n    Modelos Ágiles:\nEl Agile Manifesto de 2001 impulsó un enfoque centrado en la flexibilidad, priorizando la interacción sobre la documentación y la colaboración con el cliente sobre la negociación contractual. Las metodologías ágiles funcionan bien en entornos colaborativos, aunque enfrentan dificultades en equipos grandes, sistemas complejos o proyectos con altos requisitos regulatorios. Estos métodos pueden combinarse con enfoques tradicionales para cumplir con normas estrictas.\n  \n  \n    Modelos Estructurados y Lineales:\n  \n\n\n\n  \n    Waterfall y SSADM: Basados en etapas lineales, estos modelos requieren un enfoque de planificación y documentación detallada, siendo eficaces cuando las especificaciones son estables. SSADM, específicamente, añade análisis de negocio en etapas tempranas, aunque su linealidad puede provocar revisiones continuas en entornos cambiantes.\n  \n  \n    RUP (Rational Unified Process): Modelo iterativo y adaptable, es especialmente útil para proyectos complejos y de alto riesgo, aunque su flexibilidad lo hace complejo de personalizar y costoso para proyectos menores.\n  \n\n\n\n  Lean Software Development:\n\n\nInspirado en la manufactura lean de Toyota, este enfoque se centra en eliminar desperdicios, maximizar el valor al cliente y mejorar continuamente. Ideal para combinar con otros métodos (como Scrum), Lean optimiza el flujo de trabajo sin imponer una estructura rígida de desarrollo.\n\nSelección de Enfoques según Factores Clave\n\n  \n    Complejidad y requisitos: Proyectos simples pueden beneficiarse de modelos lineales, mientras que los más complejos requieren enfoques que manejen el riesgo, como Spiral o RUP.\n  \n  \n    Adaptabilidad a Cambios: Los enfoques iterativos y ágiles permiten incorporar cambios continuos en los requisitos, especialmente útiles en proyectos dinámicos.\n  \n  \n    Riesgo y Regulación: En proyectos con altos requisitos de regulación, los modelos que enfatizan documentación (como V-Model o Waterfall) o metodologías ágiles con control (como DSDM) son preferibles.\nEn conclusión, la elección del enfoque adecuado depende de factores específicos del proyecto como la complejidad, estabilidad de requisitos y participación del cliente.\n  \n\n\n\n\n\n  Ahmed, Tahir, et al. Developing Information Systems : Practical guidance for IT professionals, edited by James Cadle, BCS Learning &amp; Development Limited, 2014. ProQuest Ebook Central, http://ebookcentral.proquest.com/lib/bull-ebooks/detail.action?docID=1713962.\n\n\n\n\n",
+        "content": "Modelos y Enfoques de Desarrollo de Software\nLos enfoques de desarrollo de software varían en sus características, aplicabilidad y adaptabilidad a diferentes tipos de proyectos. Entre los modelos más destacados se encuentran:\n\n\n  Modelos Evolutivos e Iterativos:\n\n\n\n  \n    Spiral: Propone un desarrollo iterativo basado en prototipos y gestión de riesgos. En cada ciclo se revisan objetivos, se identifican riesgos, se desarrollan prototipos y se planifican iteraciones. Este modelo es efectivo para proyectos de alta complejidad, aunque requiere una gestión rigurosa para evitar incrementos en el alcance.\n  \n  \n    DSDM: Enfocado en iteraciones rápidas y entregas incrementales, DSDM aplica principios de negocio, colaboración y control, siendo adecuado para proyectos orientados al negocio. Se le percibe tanto como un marco de gestión de proyectos, lo que puede dificultar su implementación en desarrollos de menor envergadura.\n  \n  \n    Scrum: Popular en equipos pequeños, usa ciclos cortos llamados “sprints” para entregar versiones funcionales del producto. Si bien facilita la adaptación a cambios, requiere alta colaboración del cliente y puede ser difícil de escalar en proyectos complejos.\n  \n\n\n\n  \n    Modelos Ágiles:\nEl Agile Manifesto de 2001 impulsó un enfoque centrado en la flexibilidad, priorizando la interacción sobre la documentación y la colaboración con el cliente sobre la negociación contractual. Las metodologías ágiles funcionan bien en entornos colaborativos, aunque enfrentan dificultades en equipos grandes, sistemas complejos o proyectos con altos requisitos regulatorios. Estos métodos pueden combinarse con enfoques tradicionales para cumplir con normas estrictas.\n  \n  \n    Modelos Estructurados y Lineales:\n  \n\n\n\n  \n    Waterfall y SSADM: Basados en etapas lineales, estos modelos requieren un enfoque de planificación y documentación detallada, siendo eficaces cuando las especificaciones son estables. SSADM, específicamente, añade análisis de negocio en etapas tempranas, aunque su linealidad puede provocar revisiones continuas en entornos cambiantes.\n  \n  \n    RUP (Rational Unified Process): Modelo iterativo y adaptable, es especialmente útil para proyectos complejos y de alto riesgo, aunque su flexibilidad lo hace complejo de personalizar y costoso para proyectos menores.\n  \n\n\n\n  Lean Software Development:\n\n\nInspirado en la manufactura lean de Toyota, este enfoque se centra en eliminar desperdicios, maximizar el valor al cliente y mejorar continuamente. Ideal para combinar con otros métodos (como Scrum), Lean optimiza el flujo de trabajo sin imponer una estructura rígida de desarrollo.\n\nSelección de Enfoques según Factores Clave\n\n  \n    Complejidad y requisitos: Proyectos simples pueden beneficiarse de modelos lineales, mientras que los más complejos requieren enfoques que manejen el riesgo, como Spiral o RUP.\n  \n  \n    Adaptabilidad a Cambios: Los enfoques iterativos y ágiles permiten incorporar cambios continuos en los requisitos, especialmente útiles en proyectos dinámicos.\n  \n  \n    Riesgo y Regulación: En proyectos con altos requisitos de regulación, los modelos que enfatizan documentación (como V-Model o Waterfall) o metodologías ágiles con control (como DSDM) son preferibles.\nEn conclusión, la elección del enfoque adecuado depende de factores específicos del proyecto como la complejidad, estabilidad de requisitos y participación del cliente.\n  \n\n\n\n\n\n  Ahmed, Tahir, et al. Developing Information Systems : Practical guidance for IT professionals, edited by James Cadle, BCS Learning &amp; Development Limited, 2014. ProQuest Ebook Central, http://ebookcentral.proquest.com/lib/bull-ebooks/detail.action?docID=1713962.\n\n\n\n\n",
+        "url": "/intro2sd-rebeca-rodriguez-alu0101394763//chapter2"
+    }
+]   
 ```
 
-En este caso, no ha sido necesario realizar ningún otro paso adicional, puesto que se ha partido de un repositorio existente que ya estaba configurado.
+> [!IMPORTANT]
+> Si se utiliza un IDE para trabajar en el repositorio, se obtendrá un error de sintaxis en la línea 1 del fichero `/assets/src/search.json` debido a que se analizará dicho fichero como un archivo JSON puro, sin tener en cuenta el uso de Liquid. 
+> Dado que Liquid no es JSON estándar, el IDE interpretará que la sintaxis del fichero es incorrecta. Sin embargo, al compilar el sitio web con Jekyll, este se procesará sin problemas y se generará un JSON completamente válido.
+> Por lo tanto, este mensaje de error puede ser ignorado perfectamente.
 
-Si se navega al apartado "Settings" del repositorio de la práctica, en la sección _Pages_ de "Code and automation", se podrá ver el enlace al sitio desplegado:
+### `search.js`
+En el *script* [`/assets/src/search.js`](/assets/src/search.js) se define la clase `JekyllSearch`, que sirve para poder realizar búsquedas en el archivo `/_site/assets/src/search.json` generado.
 
-![Pages](/img/pages.png)
+### `fetch.js`
 
-#### Netlify && Vercel
-Se ha realizado un segundo despliegue en Netlify.
+> [!NOTE]
+> *Polyfill* es un bloque de código, normalmente JavaScript en el entorno Web, que proporciona funcionalidades modernas en navegadores antiguos que no soportan dichas funcionalidades de forma nativa.
 
-Como Netlify no forma parte del paquete de GitHub, ha sido necesario cambiar la visibilidad del repositorio a público.
+El *script* `/assets/src/search.js` mencionado utiliza la API `fetch` de JavaScript, que sirve para realizar peticiones HTTP de forma asíncrona, de forma que se facilita la obtención de datos desde servidores.
 
-Para realizar el despliegue, se han seguido los siguientes pasos:
+Dado que hay navegadores antiguos que no soportan `fetch`, la definición de un *polyfill* en el fichero [`/assets/src/fetch.js](/assets/src/fetch.js) permite que estos navegadores puedan utilizar la funcionalidad `fetch` sin tener que ser actualizados.
 
-1. Comprobación de que la configuración del repositorio es la adecuada.
+### `search.md`
+Por último, se ha definido el fichero [`/_pages/search.md`](/_pages/search.md), que presenta la página de búsqueda del sitio web. Mediante ella, se podrá hacer uso de la nueva capacidad de búsqueda, de forma que se podrán buscar palabras clave en el sitio o incluso utilizar expresiones regulares.
 
-2. Creación de una cuenta en [Netlify](https://www.netlify.com).
+Como se puede observar a continuación, los resultados se muestran en una lista que contiene los títulos de las páginas encontradas, un pequeño resumen de cada una y enlaces a las mismas. Cabe destacar que la lista de resultados se va a actualizar automáticamente a medida que el usuario vaya escribiendo.
 
-3. Conexión de mi cuenta con GitHub y selección del repositorio de la práctica, dando a Netlify la autorización requerida.
+![Muestra palabra clave]
 
-4. Despliegue de la página web.
-
-    ![Despliegue sin errores](/img/deploy-netlify.png)
-
-    ![Página desplegada](/img/netlify-pag-desplegada.png)
-
-    > [!NOTE] 
-    > 
-    > La página desplegada aparece sin estilos porque, después de numerosos problemas con las dependencias del proyecto en el despliegue, finalmente conseguí que este se pudiese completar sin errores comentando las líneas relativas a Sass en el archivo `_config.yml` de la rama `netlify`, que es desde donde se ha realizado el despliegue.
-
-### Personalización de la página `404.md`
-Se ha personalizado la página de error [`404.md`](/_pages/404.md) tomando como inspiración la descrita en los [apuntes](https://ull-mii-sytws.github.io/temas/web/jekyll-404.html).
-
-En este caso, se mostrará un mensaje de error y se mostrarán imágenes de perritos aleatorias obtenidas de [The Dog API](https://thedogapi.com). Por ejemplo:
-
-![The Dog API](/img/dog-api.png)
-
-### Página personal
-Con los conocimientos adquiridos en los pasos anteriores, se ha desarrollado una página personal en GitHub.
-
-Esta página ha sido enlazada desde mi perfil de GitHub, de forma que puede ser fácilmente accesible desde allí.
-
+![Muestra regex]
