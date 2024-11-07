@@ -21,15 +21,13 @@ title: Search
 <script type="text/javascript" src='{{ site.baseurl }}/assets/src/search.js'></script>
 
 <script type="text/javascript">
-
-  const search = new JekyllSearch(
-    '{{site.baseurl}}/assets/src/search.json',
-    '#search',
-    '#list',
-    '{{ site.baseurl }}' // put here your /baseurl/
-  );
+  const search = new JekyllSearch({
+    dataSource: '{{site.baseurl}}/assets/src/search.json',
+    searchField: '#search',
+    resultsList: '#list',
+    siteURL: '{{ site.baseurl }}' // put here your /baseurl/
+  });
   search.init(); 
-  
 </script>
 
 <noscript>Please enable JavaScript to use the search form.</noscript>

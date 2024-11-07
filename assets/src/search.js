@@ -1,5 +1,5 @@
 class JekyllSearch {
-    constructor(dataSource, searchField, resultsList, siteURL) {
+    constructor({dataSource, searchField, resultsList, siteURL}) {
         this.dataSource = dataSource
         this.searchField = document.querySelector(searchField)
         this.resultsList = document.querySelector(resultsList)
