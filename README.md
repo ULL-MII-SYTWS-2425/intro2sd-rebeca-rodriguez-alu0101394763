@@ -78,10 +78,10 @@ El *script* `/assets/src/search.js` mencionado utiliza la API `fetch` de JavaScr
 Dado que hay navegadores antiguos que no soportan `fetch`, la definición de un *polyfill* en el fichero [`/assets/src/fetch.js`](/assets/src/fetch.js) permite que estos navegadores puedan utilizar la funcionalidad `fetch` sin tener que ser actualizados.
 
 ### `search.md`
-Por último, se ha definido el fichero [`/_pages/search.md`](/_pages/search.md), que presenta la página de búsqueda del sitio web. Mediante ella, se podrá hacer uso de la nueva capacidad de búsqueda, de forma que se podrán buscar palabras clave en el sitio o incluso utilizar expresiones regulares.
+Por último, se ha definido el fichero [`/_pages/search.md`](/_pages/search.md) mediante el que se podrá hacer uso de la nueva capacidad de búsqueda, de forma que se podrán buscar palabras clave en el sitio o incluso utilizar expresiones regulares.
 
 Como se puede observar a continuación, los resultados se muestran en una lista que contiene los títulos de las páginas encontradas, un pequeño resumen de cada una y enlaces a las mismas. Cabe destacar que la lista de resultados se va a actualizar automáticamente a medida que el usuario vaya escribiendo.
 
-![Muestra palabra clave]
+![Muestra palabra clave](/img/muestra.png)
 
-![Muestra regex]
+![Muestra regex](/img/muestra-regex.png)
