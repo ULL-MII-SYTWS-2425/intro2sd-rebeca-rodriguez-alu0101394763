@@ -6,7 +6,7 @@
 
 # Sistemas y Tecnología Web: Servidor
 ### Máster en Ingeniería Informática (Curso 24-25)
-## Práctica: "Introduction to Systems Development" and Static Generators
+## Práctica: Jekyll Search
 
 **Alumna:** Rebeca Rodríguez Rodríguez (alu0101394763@ull.edu.es) - rrrguez
 
@@ -15,20 +15,18 @@
 ## Descripción y objetivos de la práctica
 El objetivo de esta práctica es incoporar la capacidad de búsqueda al sitio web desarrollado en la Práctica: <ins>"Introduction to Systems Development" and Static Generators</ins>.
 
-Este repositorio parte de una plantilla predefinida, llamada [**Minimal Mistakes**](https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/).
+En la siguiente lista se recogen los principales requisitos de la práctica:
+* Capacidad para buscar en todos los ficheros, lo que incluye no solo los de los posts, sino también los de las páginas.
 
-### Jekyll
-**Jekyll** es un generador de sitios estático. Esta herramienta recibe texto escrito en un determinado lenguaje de marcado y utiliza _layouts_ para crear dichos sitios.
+* Capacidad para admitir expresiones regulares.
 
-### GitHub Pages
-**GitHub Pages** es otro generador estático de sitios que utiliza ficheros HTML, CSS y JavaScript directamente desde un reporitorio de GitHub y publica una página web a partir de ellos.
+* Aparición de los resultados conforme se vaya tecleando.
 
-Esta herramienta está disponible para repositorios públicos, y también para repositorios privados si se tiene GitHub Pro, GitHub Team, GitHub Enterprise Cloud o GitHub Enterprise Server.
+* Visualización de una lista de enlaces a los ficheros que contienen la expresión buscada y un resumen de las primeros caracteres del fichero.
 
-GitHub Pages se puede utilizar conjuntamente con Jekyll, puesto que ahora GitHub Pages usa GitHub Actions para ejecutar el Jekyll build. Solo hay que tener GitHub Actions habilitado en el repositorio en cuestión para usar el _workflow_ de Jekyll.
+* Lectura y resumen en un post del Capítulo 2 (*Lifecycle types and their rationals*, por Lynda Girvan) del libro *Developing Information Systems*, editado por James Cadle.
 
 ## Desarrollo de la práctica
-A continuación, se exponen las acciones realizadas durante el desarrollo de la práctica.
 
 ### Primeros pasos
 En primer lugar, se ha realizado el resumen solicitado y se ha almacenado como post en el fichero [`/_posts/2024-11-02-chapter2.md`](/_posts/2024-11-02-chapter2.md).
