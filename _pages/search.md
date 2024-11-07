@@ -17,11 +17,11 @@ title: Search
   </ul>
 </form>
 
-< script type="text/javascript" src="{{site.baseurl}}/assets/src/fetch.js"></script>
-< script type="text/javascript" src="{{site.baseurl}}/assets/src/search.js"></script>
+<script type="text/javascript" src="{{site.baseurl}}/assets/src/fetch.js"></script>
+<script type="text/javascript" src="{{site.baseurl}}/assets/src/search.js"></script>
 
 
-< script type="text/javascript">
+<script type="text/javascript">
 
   const search = new JekyllSearch(
     '{{site.url}}/assets/src/search.json',
